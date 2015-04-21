@@ -1,8 +1,8 @@
-# rails_client_checker 
+# Rails Client Checker
 
 Offer end-users a configurable /check route to check their browsers compatibility with your Rails application,
-with the ability to enable/disable standard checker modules or even add their own module logic in Javascript.
-Standard checkers are: browser name/version, cookies, asset loading and Pusher connectivity.
+with the ability to enable/disable standard checker modules or even your their own module logic in Javascript.
+Standard checkers are: browser name/version, cookies, asset loading and [Pusher](https://pusher.com) connectivity.
 
 ## Installation
 
