@@ -1,0 +1,59 @@
+#checkers_report {
+  border: 2px solid blue;
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+  height: auto;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#checkers_report .checker {
+  width: 100%;
+  margin: 0 0 10px 0;
+  font-size: 20px;
+}
+
+#checkers_report .checker .display {
+  float: left;
+}
+
+#checkers_report .checker .status {
+  float: right;
+}
+
+#checkers_report .checker .status.ok {
+  color: green;
+}
+
+#checkers_report .checker .status.no {
+  color: red;
+}
+
+#checkers_report .checker .error {
+  clear: both;
+  width: 100%;
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.summary {
+  text-align: center;
+  display: none;
+  width: 100%;
+  position: absolute;
+  bottom: -50px;
+  margin-left: -10px;
+}
+
+.summary.success {
+  color: green;
+}
+
+.summary.failure {
+  color: red;  
+}

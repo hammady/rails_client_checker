@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= RailsClientChecker.config.title  %></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <%= inline_javascript_tag 'jquery.min.js' %>
+		<% if checker_enabled?("pusher") %>
+    	<%= inline_javascript_tag 'pusher.min.js' %>
+		<% end %>
+    <%= inline_javascript_tag 'custom_checkers.js' %>
+    <%= inline_javascript_tag 'check.js' %>
+    <%= inline_stylesheet_tag 'rails_client_checker/check.css' %>
+	</head>
+	<body>
+		<span style="display: none;">
+			<% if checker_enabled?("assets") %>
+				<span id="dummy_asset_path"><%= asset_path 'client_checker_dummy.js' %></span>
+			<% end %>
+			<% if checker_enabled?("cookies") %>
+				<span id="set_cookie_path"><%= set_cookie_path %></span>
+				<span id="get_cookie_path"><%= get_cookie_path %></span>
+			<% end %>
+			<% if checker_enabled?("pusher") %>
+				<span id="pusher_key"><%= Pusher.key rescue nil %></span>
+			<% end %>
+		</span>
+		<% if checker_enabled?("browser") %>
+	    <%= inline_javascript_tag 'browser-update.js' %>
+		<% end %>
+
+		<%= render partial: 'noscript' %>
+
+		<script>
+			checkers_list = <%= RailsClientChecker.config.checkers.to_json.html_safe %>
+	  	</script>
+		<div id="checkers_report">
+			<div class="summary success">
+				Congratulations, you can close this window and start using <%= RailsClientChecker.config.appname %>!
+			</div>
+			<div class="summary failure">
+				Please fix the above error to be able to use <%= RailsClientChecker.config.appname %>.
+				<% if RailsClientChecker.config.support_page.present? %>
+					You can also <a href="<%= RailsClientChecker.config.support_page %>">contact us</a> for more help.
+				<% end %>
+			</div>
+		</div>
+
+	</body>
+</html>
