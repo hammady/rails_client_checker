@@ -26,6 +26,8 @@ This gem was extracted from [Rayyan](http://rayyan.qcri.org/) web application an
 
 ## Installation
 
+The gem was tested on Rails 4.1 and 3.2. If you have a different version and it does not work for you, please create a github issue.
+
 Add this line to your application's Gemfile:
 
     gem 'rails_client_checker'
@@ -56,6 +58,13 @@ This will generate 3 new routes:
 3. `/checker/get_cookie`, both used in the cookie test.
 
 You can also mount the routes on `'/'` instead of `'/checker'` if you don't have any conflicting routes in your application. This will make your routes simpler, for example `/check` instead of `/checker/check`.
+
+It is a good idea to insert a link for your brand new checker page in your app. In any ERB template insert the following:
+
+    <%= link_to "Check your browser compatibility", rails_client_checker.check_path %>
+
+It is recommended to place this link in your sign in/sign up page. If you are using [devise](https://github.com/plataformatec/devise) for authentication, [generate the views](https://github.com/plataformatec/devise#configuring-views) then insert the link at the end of `app/views/devise/shared/_links.erb`.
+
 
 ## Configuration
 By default 3 standard checker modules are enabled:
