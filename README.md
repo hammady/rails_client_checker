@@ -38,7 +38,7 @@ Or install it yourself as:
 This gem was developed by Hossam Hammady at [Qatar Computing Research Institute, Data Analytics](http://da.qcri.org).
 
 Reach me at:
-* Twitter: {@hammady}[http://www.twitter.com/hammady]
+* Twitter: [@hammady](http://www.twitter.com/hammady)
 * Email: hhammady@qf[dot]org[dot]qa
 
 The browser compatibility checker is taken as is from [Browser-Update.org](http://browser-update.org)
