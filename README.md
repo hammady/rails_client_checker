@@ -79,7 +79,8 @@ To enable/disable modules and set other configuration options, generate an initi
 
     rails generate rails_client_checker:initializer
 
-This will generate `config/initializers/rails_client_checker.rb`. Check it for all configuration options. 
+This will generate `config/initializers/rails_client_checker.rb`. Check it for all configuration options. You should restart your rails servers after
+changing this file.
 
 ### Advanced view customization
 If you want to change the look and feel of the checker page, you can easily do this by running the view generator:
@@ -115,6 +116,19 @@ Basically, `custom_checkers` is an array of objects, each has 2 attributes:
 
 1. `display` that defines the text that appears in the page
 2. `worker` function that does the checker work. You can write any Javascript code inside this function, e.g. do ajax calls, call your own application routes, ... To communicate back the checker result, call the `callback` function with `null` to denote success or any string to describe the error. 
+
+## Tips and Tricks
+
+You can reuse the `<noscript>` tag that appears when the user browser
+does not support Javascript in all your pages, without generating 
+the gem views. Simply include the following in your layout `application.html.erb`:
+
+    # app/views/layouts/application.html.erb
+    ...
+    <body>
+    ...
+    <%= render partial: 'rails_client_checker/checker/noscript' %>
+    ...
 
 ## Contributing
 
