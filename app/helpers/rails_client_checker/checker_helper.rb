@@ -1,8 +1,9 @@
 module RailsClientChecker
   module CheckerHelper
+    # http://stackoverflow.com/questions/35251759/undefined-method-find-asset-for-nilnilclass/37820647#37820647
     def inline_asset(name)
-      filename = Rails.application.assets.find_asset(name).pathname
-      File.read filename
+      assets = Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)
+      assets.find_asset(name).to_s
     end
 
     def inline_javascript_tag(name)
