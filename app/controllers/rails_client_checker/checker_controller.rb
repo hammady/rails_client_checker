@@ -1,6 +1,8 @@
+require_dependency "rails_client_checker/application_controller"
+
 module RailsClientChecker
 class CheckerController < ApplicationController
-  def check 
+  def check
     render layout: false
   end
 
